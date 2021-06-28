@@ -1,3 +1,12 @@
-<div class="col">
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni, harum sint. Consectetur dolor minus, iure labore minima ex ducimus magni, sequi iste modi ad eveniet esse aliquid commodi magnam aliquam.
+<div class="row">
+    <div class="col-md-4 col-sm-6" *ngFor="let gif of resultados">
+        <div class="card">
+            <img [src]="gif.images.downsized_medium.url" [alt]="gif.title" class="card-img-top"/>
+            <div class="card-body">
+                <p class="card-text">
+                    {{ gif.title }}
+                </p>
+            </div>
+        </div>
+    </div>
 </div>
