@@ -9,9 +9,16 @@ export class GifsService {
         return [...this._historial];
     }
 
-    buscarGifs (query: string) {
-        this._historial.unshift(query);
+    buscarGifs (query: string = '') {
+        if (query.trim().length === 0) {return;}
 
+        query = query.trim().toLocaleLowerCase();
+
+        if (!this._historial.includes(query)) {
+            this._historial.unshift(query);
+            this._historial = this._historial.splice(0, 10);
+        }
+        
         console.log(this._historial);
-    } 
+    }
 }
